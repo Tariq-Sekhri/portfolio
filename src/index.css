@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+/* Force dark baseline so local and production match */
+html {
+  color-scheme: dark;
+}
+html, body {
+  background-color: #020617; /* slate-950 */
+  color: #f1f5f9; /* slate-100 */
+}
