@@ -39,7 +39,7 @@ export interface PortfolioData {
 export const portfolio: PortfolioData = {
   name: "Tariq Sekhri",
   about:
-    "Computer Programming graduate from Sheridan College with experience in full-stack development, desktop apps, and teaching. I build cross-platform tools, web apps, and APIs using TypeScript, Rust, Java, and C#. Currently a Code Sensei at Code Ninjas, teaching Scratch, JavaScript, and Unity.",
+    "Computer Programming graduate from Sheridan College with experience in full-stack development, desktop apps, and teaching. I build cross-platform tools, web apps, and APIs using TypeScript, Rust, Java, and C#. Currently a Code Sensei at Code Ninjas, teaching Scratch, JavaScript, and Unity. Based in Oakville, Ontario.",
 
   skills: {
     Languages: [
