@@ -1,32 +1,29 @@
-# Fix blank page / 404 on GitHub Pages
+# GitHub Pages setup
 
-Your site is still serving **source code** instead of the **built** app. Do this:
+The workflow **builds** the app and pushes the result to the **gh-pages** branch. GitHub Pages must serve that branch (the built site), not `master` (the source).
 
-## 1. Use GitHub Actions for deployment
+## 1. Run the workflow first (creates gh-pages branch)
 
-1. Open your repo: **https://github.com/Tariq-Sekhri/portfolio**
-2. Go to **Settings** → **Pages** (left sidebar).
-3. Under **Build and deployment**:
-   - **Source:** choose **"GitHub Actions"** (not "Deploy from a branch").
-4. Save. You don’t need to pick a branch or folder.
+1. Open **https://github.com/Tariq-Sekhri/portfolio** → **Actions** tab.
+2. Click **Deploy to GitHub Pages** in the left sidebar.
+3. Click **Run workflow**, choose **master**, then **Run workflow**.
+4. Wait until the run finishes (green check). This creates the **gh-pages** branch with the built site.
 
-## 2. Run the workflow (if it hasn’t run yet)
+## 2. Set Pages to use gh-pages (not master)
 
-1. Open the **Actions** tab.
-2. Click **"Deploy to GitHub Pages"** in the left sidebar.
-3. If you see **"Run workflow"**, click it and run on `master`.
-4. Wait for the workflow to finish (green checkmark).
-5. The first time, you may need to approve the **`github-pages`** environment (GitHub will show a prompt).
+1. Go to **Settings** → **Pages**.
+2. Under **Build and deployment**:
+   - **Source:** **Deploy from a branch**
+   - **Branch:** **gh-pages** → **/ (root)**
+3. Click **Save**.
 
-## 3. Open the correct URL
+## 3. Use the correct URL
 
-The app is served under the repo name, not at the root:
+- **Correct:** **https://tariq-sekhri.github.io/portfolio/** (with `/portfolio/` and trailing slash)
+- Wrong: `https://tariq-sekhri.github.io/` (root does not serve this app)
 
-- **Correct:** **https://tariq-sekhri.github.io/portfolio/**
-- Wrong: https://tariq-sekhri.github.io/ (root will not load the app)
-
-Use the correct URL and, if needed, hard refresh (Ctrl+Shift+R) or try in an incognito window.
+Hard refresh (Ctrl+Shift+R) or try in incognito if it still looks blank.
 
 ---
 
-**Why:** The built app lives in the `dist/` folder. The workflow builds it and deploys that. If Pages is set to “Deploy from a branch”, it serves the repo as-is (including raw `index.html` that points to `/src/main.tsx`), which causes the 404.
+**Why:** The repo root has source code; `index.html` there points to `/src/main.tsx`, which only exists in dev. The workflow builds the app into `dist/` and pushes that to **gh-pages**. Pages must serve **gh-pages**, not `master`.
