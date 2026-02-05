@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  base: '/portfolio/', // required for GitHub Pages: https://tariq-sekhri.github.io/portfolio/
+  base: '/portfolio/', // GitHub Pages + use http://localhost:5173/portfolio/ locally
   plugins: [react(), tailwindcss()],
 })
