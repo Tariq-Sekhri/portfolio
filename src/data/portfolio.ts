@@ -28,6 +28,7 @@ export interface ContactLink {
 export interface PortfolioData {
   name: string;
   about: string;
+  resumeUrl: string;
   skills: Record<string, string[]>;
   featuredProjects: Project[];
   moreProjectsUrl: string;
@@ -40,6 +41,7 @@ export const portfolio: PortfolioData = {
   name: "Tariq Sekhri",
   about:
     "Computer Programming graduate from Sheridan College with experience in full-stack development, desktop apps, and teaching. I build cross-platform tools, web apps, and APIs using TypeScript, Rust, Java, and C#. Currently a Code Sensei at Code Ninjas, teaching Scratch, JavaScript, and Unity. Based in Oakville, Ontario.",
+  resumeUrl: "/portfolio/Tariq-Sekhri-Resume.pdf",
 
   skills: {
     Languages: [

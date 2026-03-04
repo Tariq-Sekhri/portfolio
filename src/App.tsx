@@ -13,6 +13,13 @@ function App() {
           <p className="mt-5 max-w-lg text-slate-400 leading-relaxed">
             {portfolio.about}
           </p>
+          <a
+            href={portfolio.resumeUrl}
+            download="Tariq-Sekhri-Resume.pdf"
+            className="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-500/40 bg-emerald-950/40 px-4 py-2.5 text-sm font-medium text-emerald-300 hover:border-emerald-500/60 hover:bg-emerald-950/60 hover:text-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+          >
+            Download resume (PDF)
+          </a>
         </header>
 
         <div className="space-y-12">
