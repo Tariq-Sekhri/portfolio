@@ -91,6 +91,13 @@ export const portfolio: PortfolioData = {
       tech: ["Tauri", "Rust", "React", "TypeScript", "Tailwind CSS", "SQLite"],
     },
     {
+      name: "TikTok Archiver",
+      description:
+        "Minimal TikTok account watcher and downloader written in Rust. Watches configured accounts, keeps JSON state of seen videos, and downloads missing videos via yt-dlp. Uses headless Chrome for login/cookies and logs activity to a JSON log file.",
+      url: "https://github.com/Tariq-Sekhri/Tiktok-Archiver",
+      tech: ["Rust", "yt-dlp", "Headless Chrome", "YAML"],
+    },
+    {
       name: "Mood Monitor",
       description:
         "Real-time mood tracking app where users choose from 10 mood emojis; one vote per user. Background gradient reflects the most popular mood. Built with Next.js 14, TypeScript, Tailwind, and Redis.",
