@@ -98,6 +98,8 @@ export const portfolio: PortfolioData = {
         "Minimal TikTok account watcher and downloader written in Rust. Watches configured accounts, keeps JSON state of seen videos, and downloads missing videos via yt-dlp. Uses headless Chrome for login/cookies and logs activity to a JSON log file.",
       url: "https://github.com/Tariq-Sekhri/Tiktok-Archiver",
       tech: ["Rust", "yt-dlp", "Headless Chrome", "YAML"],
+      demoUrl: "https://www.youtube.com/watch?v=3Ewcy7WfzaA",
+      demoLabel: "TikTok setup video",
     },
     {
       name: "Mood Monitor",

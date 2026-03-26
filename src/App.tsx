@@ -78,7 +78,23 @@ function App() {
                           rel="noopener noreferrer"
                           className="text-sm text-slate-500 hover:text-emerald-400/90 focus:outline-none focus:underline"
                         >
-                          {project.demoLabel ?? "Watch demo video"}
+                          {project.name === "TikTok Archiver" ? (
+                            <>
+                              <span className="sr-only">
+                                {project.demoLabel ?? "Watch demo video"}
+                              </span>
+                              <svg
+                                aria-hidden="true"
+                                className="h-4 w-4"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                              >
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </>
+                          ) : (
+                            project.demoLabel ?? "Watch demo video"
+                          )}
                         </a>
                       </>
                     )}
