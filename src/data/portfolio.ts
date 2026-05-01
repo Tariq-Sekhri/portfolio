@@ -88,9 +88,11 @@ export const portfolio: PortfolioData = {
     {
       name: "Time Tracker",
       description:
-        "Private, automatic desktop time tracking for Windows, macOS, and Linux. Monitors foreground window usage, stores data locally in SQLite, and supports regex-based app categorization and skipped apps. 100% local, no cloud, no telemetry.",
+        "Private, automatic desktop time tracking for Windows and Linux (Ubuntu 24.04.4 Desktop). Monitors foreground window usage, stores data locally in SQLite, and supports regex-based app categorization and skipped apps. 100% local, no cloud, no telemetry.",
       url: "https://github.com/Tariq-Sekhri/time_tracker",
       tech: ["Tauri", "Rust", "React", "TypeScript", "Tailwind CSS", "SQLite"],
+      demoUrl: "https://www.youtube.com/watch?v=4JMSmt3tppc",
+      demoLabel: "Product demo video",
     },
     {
       name: "TikTok Archiver",
