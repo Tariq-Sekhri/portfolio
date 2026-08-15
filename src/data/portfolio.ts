@@ -27,7 +27,6 @@ export interface ContactLink {
 
 export interface PortfolioData {
   name: string;
-  about: string;
   resumeUrl: string;
   skills: Record<string, string[]>;
   featuredProjects: Project[];
@@ -39,8 +38,6 @@ export interface PortfolioData {
 
 export const portfolio: PortfolioData = {
   name: "Tariq Sekhri",
-  about:
-    "Computer Programming graduate from Sheridan College with experience in full-stack development, desktop apps, and teaching. I build cross-platform tools, web apps, and APIs using TypeScript, Rust, Java, and C#. Currently a Code Sensei at Code Ninjas, teaching Scratch, JavaScript, and Unity. Based in Oakville, Ontario.",
   resumeUrl: "/portfolio/Tariq-Sekhri-Resume.pdf",
 
   skills: {
@@ -86,6 +83,13 @@ export const portfolio: PortfolioData = {
 
   featuredProjects: [
     {
+      name: "Personal Media Server",
+      description:
+        "Personal media server and player. Local-only library with a React frontend and Rust backend that indexes and streams media, with playlists, tags, playback queue, and installable web/Android clients.",
+      url: "https://github.com/Tariq-Sekhri/Tariq-Media-Server",
+      tech: ["React", "TypeScript", "Rust", "Capacitor", "Tailwind CSS"],
+    },
+    {
       name: "Time Tracker",
       description:
         "Private, automatic desktop time tracking for Windows and Linux (Ubuntu 24.04.4 Desktop). Monitors foreground window usage, stores data locally in SQLite, and supports regex-based app categorization and skipped apps. 100% local, no cloud, no telemetry.",
@@ -95,6 +99,13 @@ export const portfolio: PortfolioData = {
       demoLabel: "Product demo video",
     },
     {
+      name: "Alarmpro",
+      description:
+        "Open-source Android alarm clock with alarms, timers, stopwatch, and world clock. Supports repeating schedules, alarm groups, bulk actions, and a full-screen ringing UI over the lock screen.",
+      url: "https://github.com/Tariq-Sekhri/Alarmpro",
+      tech: ["Kotlin", "Jetpack Compose", "Material 3", "AlarmManager"],
+    },
+    {
       name: "TikTok Archiver",
       description:
         "Minimal TikTok account watcher and downloader written in Rust. Watches configured accounts, keeps JSON state of seen videos, and downloads missing videos via yt-dlp. Uses headless Chrome for login/cookies and logs activity to a JSON log file.",
@@ -102,13 +113,6 @@ export const portfolio: PortfolioData = {
       tech: ["Rust", "yt-dlp", "Headless Chrome", "YAML"],
       demoUrl: "https://www.youtube.com/watch?v=3Ewcy7WfzaA",
       demoLabel: "TikTok setup video",
-    },
-    {
-      name: "Mood Monitor",
-      description:
-        "Real-time mood tracking app where users choose from 10 mood emojis; one vote per user. Background gradient reflects the most popular mood. Built with Next.js 14, TypeScript, Tailwind, and Redis.",
-      url: "https://github.com/Tariq-Sekhri/Mood_Monitor",
-      tech: ["Next.js 14", "TypeScript", "Tailwind CSS", "Redis"],
     },
     {
       name: "Product CRUD Web & API App",
