@@ -4,8 +4,8 @@ import { portfolio } from "./data/portfolio";
 const navLinks = [
   { href: "#experience", label: "Experience" },
   { href: "#education", label: "Education" },
-  { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -133,100 +133,106 @@ function App() {
             </article>
           </section>
 
-          <section id="skills" className="scroll-mt-28 md:scroll-mt-24">
-            <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-sky-400">
-              Skills
-            </h2>
-            <div className="rounded-xl border border-slate-800 border-t-sky-500/20 bg-slate-900/50 p-6">
-              <div className="space-y-6">
-                {Object.entries(portfolio.skills).map(([category, items]) => (
-                  <div key={category}>
-                    <p className="mb-2 text-sm text-sky-400/90">{category}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {items.map((skill) => (
-                        <span
-                          key={skill}
-                          className="rounded-md border border-slate-700 border-sky-900/50 bg-slate-800 px-2.5 py-1 text-sm text-slate-300"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+          <div className="grid gap-6 lg:grid-cols-5 lg:items-start">
+            <section id="projects" className="scroll-mt-28 md:scroll-mt-24 lg:col-span-3">
+              <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-emerald-400">
+                Projects
+              </h2>
+              <div className="space-y-4">
+                {portfolio.featuredProjects.map((project) => (
+                  <article
+                    key={project.name}
+                    className="rounded-xl border border-slate-800 border-l-4 border-l-emerald-500/60 bg-slate-900/50 p-6 transition-colors hover:border-slate-700"
+                  >
+                    <div className="flex flex-wrap items-baseline gap-2 gap-y-1">
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-emerald-400 hover:text-emerald-300 focus:outline-none focus:underline"
+                      >
+                        {project.name}
+                      </a>
+                      {project.demoUrl && (
+                        <>
+                          <span className="text-slate-600">·</span>
+                          <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-slate-500 hover:text-emerald-400/90 focus:outline-none focus:underline"
+                          >
+                            {project.name === "TikTok Archiver" ? (
+                              <>
+                                <span className="sr-only">
+                                  {project.demoLabel ?? "Watch demo video"}
+                                </span>
+                                <svg
+                                  aria-hidden="true"
+                                  className="h-4 w-4"
+                                  viewBox="0 0 24 24"
+                                  fill="currentColor"
+                                >
+                                  <path d="M8 5v14l11-7z" />
+                                </svg>
+                              </>
+                            ) : (
+                              project.demoLabel ?? "Watch demo video"
+                            )}
+                          </a>
+                        </>
+                      )}
                     </div>
-                  </div>
+                    <p className="mt-2 text-slate-400 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                    <p className="mt-3 text-xs text-emerald-600/80">
+                      {project.tech.join(" / ")}
+                    </p>
+                  </article>
                 ))}
               </div>
-            </div>
-          </section>
-
-          <section id="projects" className="scroll-mt-28 md:scroll-mt-24">
-            <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-emerald-400">
-              Projects
-            </h2>
-            <div className="space-y-4">
-              {portfolio.featuredProjects.map((project) => (
-                <article
-                  key={project.name}
-                  className="rounded-xl border border-slate-800 border-l-4 border-l-emerald-500/60 bg-slate-900/50 p-6 transition-colors hover:border-slate-700"
+              <p className="mt-6">
+                <a
+                  href={portfolio.moreProjectsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/50 bg-emerald-950/50 px-5 py-3 text-base font-medium text-emerald-300 transition-colors hover:border-emerald-400/70 hover:bg-emerald-950/80 hover:text-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                 >
-                  <div className="flex flex-wrap items-baseline gap-2 gap-y-1">
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium text-emerald-400 hover:text-emerald-300 focus:outline-none focus:underline"
-                    >
-                      {project.name}
-                    </a>
-                    {project.demoUrl && (
-                      <>
-                        <span className="text-slate-600">·</span>
-                        <a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-slate-500 hover:text-emerald-400/90 focus:outline-none focus:underline"
-                        >
-                          {project.name === "TikTok Archiver" ? (
-                            <>
-                              <span className="sr-only">
-                                {project.demoLabel ?? "Watch demo video"}
-                              </span>
-                              <svg
-                                aria-hidden="true"
-                                className="h-4 w-4"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                              >
-                                <path d="M8 5v14l11-7z" />
-                              </svg>
-                            </>
-                          ) : (
-                            project.demoLabel ?? "Watch demo video"
-                          )}
-                        </a>
-                      </>
-                    )}
-                  </div>
-                  <p className="mt-2 text-slate-400 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  <p className="mt-3 text-xs text-emerald-600/80">
-                    {project.tech.join(" / ")}
-                  </p>
-                </article>
-              ))}
-            </div>
-            <p className="mt-4">
-              <a
-                href={portfolio.moreProjectsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-emerald-400 hover:text-emerald-300 focus:outline-none focus:underline"
-              >
-                More on GitHub →
-              </a>
-            </p>
-          </section>
+                  More on GitHub
+                  <span aria-hidden="true">→</span>
+                </a>
+              </p>
+            </section>
+
+            <aside
+              id="skills"
+              className="scroll-mt-28 md:scroll-mt-24 lg:col-span-2 lg:sticky lg:top-28"
+            >
+              <h2 className="mb-4 text-xs font-medium uppercase tracking-widest text-sky-400">
+                Skills
+              </h2>
+              <div className="rounded-xl border border-slate-800 border-t-sky-500/20 bg-slate-900/50 p-5">
+                <div className="space-y-5">
+                  {Object.entries(portfolio.skills).map(([category, items]) => (
+                    <div key={category}>
+                      <p className="mb-2 text-xs text-sky-400/90">{category}</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {items.map((skill) => (
+                          <span
+                            key={skill}
+                            className="rounded-md border border-slate-700 border-sky-900/50 bg-slate-800 px-2 py-0.5 text-xs text-slate-400"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </aside>
+          </div>
 
           <section id="contact" className="scroll-mt-28 md:scroll-mt-24">
             <div className="rounded-2xl border border-slate-800 border-t-violet-500/40 bg-gradient-to-b from-violet-950/40 to-slate-900/50 px-6 py-14 sm:px-10 sm:py-16">
