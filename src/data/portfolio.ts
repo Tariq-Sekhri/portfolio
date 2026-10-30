@@ -5,6 +5,8 @@ export interface Project {
   tech: string[];
   demoUrl?: string;
   demoLabel?: string;
+  images?: { src: string; alt: string }[];
+  portraitImages?: boolean;
 }
 
 export interface ExperienceItem {
@@ -28,7 +30,6 @@ export interface ContactLink {
 export interface PortfolioData {
   name: string;
   resumeUrl: string;
-  skills: Record<string, string[]>;
   featuredProjects: Project[];
   moreProjectsUrl: string;
   experience: ExperienceItem[];
@@ -40,102 +41,107 @@ export const portfolio: PortfolioData = {
   name: "Tariq Sekhri",
   resumeUrl: "/portfolio/Tariq-Sekhri-Resume.pdf",
 
-  skills: {
-    Languages: [
-      "Java",
-      "C",
-      "C#",
-      "Rust",
-      "JavaScript",
-      "TypeScript",
-      "Python",
-      "SQL",
-      "JSON",
-      "XML",
-      "YAML",
-    ],
-    Frontend: [
-      "HTML",
-      "PHP",
-      "Thymeleaf",
-      "CSS",
-      "React",
-      "Tailwind CSS",
-      "React Native",
-      "Angular",
-      ".NET MAUI",
-    ],
-    "Backend & Full-Stack": [".NET", "Spring Boot", "Express.js", "WCF", "Tauri"],
-    Databases: ["mySQL", "Oracle", "MongoDB", "ADO.NET", "Entity Framework", "Prisma"],
-    "Cloud & DevOps": ["AWS", "Linux/UNIX Admin"],
-    "Tools & Workflow": [
-      "Figma",
-      "Git",
-      "GitHub",
-      "Jira",
-      "Eclipse",
-      "Vs Code",
-      "Visual Studio",
-      "Postman",
-    ],
-    "Software & Methodologies": ["OOP", "OOD", "Agile", "Scrum"],
-  },
-
   featuredProjects: [
     {
-      name: "Personal Media Server",
+      name: "Bramble",
+      images: [
+        { src: "projects/bramble-interface.png", alt: "Optimization desktop interface" },
+        { src: "projects/bramble-new-run-bodies.png", alt: "New run: assign bodies" },
+        { src: "projects/bramble-new-run-loads.png", alt: "New run: material and load cases" },
+        { src: "projects/bramble-new-run-settings.png", alt: "New run: run settings" },
+        { src: "projects/bramble-new-run-check.png", alt: "New run: pre-flight check" },
+        { src: "projects/bramble-comparison.png", alt: "Topology optimization comparison" },
+      ],
       description:
-        "Personal media server and player. Local-only library with a React frontend and Rust backend that indexes and streams media, with playlists, tags, playback queue, and installable web/Android clients.",
+        "Collaborative engineering project for 2D and 3D topology optimization: finding stiff structures within a design envelope using less material. An Electron desktop client supports authoring, monitoring, and comparing optimization runs, with interactive 3D visualization and a Python computation service.",
+      url: "https://github.com/Studio-DA/Bramble",
+      tech: ["Electron", "React", "TypeScript", "Three.js", "Python", "FastAPI", "NumPy", "SciPy"],
+    },
+    {
+      name: "Personal Media Server",
+      images: [
+        { src: "projects/tms-library.png", alt: "Movies and TV library" },
+        { src: "projects/tms-discover.png", alt: "Discovery catalog" },
+        { src: "projects/tms-seasons.png", alt: "Season browsing" },
+        { src: "projects/tms-episodes.png", alt: "Episode browser" },
+        { src: "projects/tms-music.png", alt: "Music library" },
+      ],
+      description:
+        "Private multi-user media platform with library permissions, device-session controls, audit logs, and private playlists and tags. Supports permission- and quota-checked web-video and magnet ingestion with live progress, plus FFmpeg HLS playback with subtitles and resume.",
       url: "https://github.com/Tariq-Sekhri/Tariq-Media-Server",
-      tech: ["React", "TypeScript", "Rust", "Capacitor", "Tailwind CSS"],
+      tech: ["React", "TypeScript", "Rust", "Axum", "FFmpeg", "HLS"],
     },
     {
       name: "Time Tracker",
+      images: [
+        { src: "projects/time-tracker-demo-calendar.png", alt: "Calendar (demo)" },
+        { src: "projects/time-tracker-demo-daily-average.png", alt: "Daily Avg (demo)" },
+        { src: "projects/time-tracker-demo-total.png", alt: "Total (demo)" },
+        { src: "projects/time-tracker-demo-trends.png", alt: "Trend (demo)" },
+        { src: "projects/time-tracker-demo-settings.png", alt: "Settings (demo)" },
+        { src: "projects/time-tracker-demo-google-calendars.png", alt: "Google Calendars (demo)" },
+        { src: "projects/time-tracker-demo-sync.png", alt: "Sync (demo)" },
+        { src: "projects/time-tracker-demo-regex.png", alt: "Regex (demo)" },
+        { src: "projects/time-tracker-demo-categories.png", alt: "Categories (demo)" },
+        { src: "projects/time-tracker-demo-app-groups.png", alt: "App Groups (demo)" },
+        { src: "projects/time-tracker-demo-skipped-apps.png", alt: "Skipped Apps (demo)" },
+      ],
       description:
-        "Private, automatic desktop time tracking for Windows and Linux (Ubuntu 24.04.4 Desktop). Monitors foreground window usage, stores data locally in SQLite, and supports regex-based app categorization and skipped apps. 100% local, no cloud, no telemetry.",
+        "Tauri/Rust desktop app that tracks active app and window usage, with calendar, donut, and trend views, tray controls, and privacy filters. Adds Android usage tracking and Rust/Axum sync with device approval and revocation, with desktop and Google Play closed-test betas shipped.",
       url: "https://github.com/Tariq-Sekhri/time_tracker",
-      tech: ["Tauri", "Rust", "React", "TypeScript", "Tailwind CSS", "SQLite"],
+      tech: ["Tauri 2", "Rust", "React", "Kotlin", "Axum", "SQLite"],
       demoUrl: "https://www.youtube.com/watch?v=4JMSmt3tppc",
       demoLabel: "Product demo video",
     },
     {
-      name: "Alarmpro",
+      name: "AlarmPro",
+      images: [
+        { src: "projects/alarmpro.png", alt: "Alarms" },
+        { src: "projects/alarmpro-timers.png", alt: "Countdown timers" },
+        { src: "projects/alarmpro-completed-timer.png", alt: "Completed timer" },
+        { src: "projects/alarmpro-ringing.png", alt: "Full-screen timer alert" },
+        { src: "projects/alarmpro-clock.png", alt: "Clock" },
+        { src: "projects/alarmpro-stopwatch.png", alt: "Stopwatch and laps" },
+      ],
+      portraitImages: true,
       description:
-        "Open-source Android alarm clock with alarms, timers, stopwatch, and world clock. Supports repeating schedules, alarm groups, bulk actions, and a full-screen ringing UI over the lock screen.",
+        "Android alarm app with exact scheduling, full-screen ringing, boot recovery, alarm groups, and configurable snooze and vibration. Includes independent multi-stopwatches with laps, alerts, live notifications, and session-specific notification actions.",
       url: "https://github.com/Tariq-Sekhri/Alarmpro",
-      tech: ["Kotlin", "Jetpack Compose", "Material 3", "AlarmManager"],
+      tech: ["Kotlin", "Jetpack Compose", "Android", "AlarmManager"],
     },
     {
       name: "TikTok Archiver",
+      images: [
+        { src: "projects/tiktok-archiver-demo-library.png", alt: "Video library (demo)" },
+        { src: "projects/tiktok-archiver-demo-creators.png", alt: "Tracked creators (demo)" },
+        { src: "projects/tiktok-archiver-demo-schedules.png", alt: "Check schedules (demo)" },
+        { src: "projects/tiktok-archiver-demo-failed.png", alt: "Failed downloads (demo)" },
+        { src: "projects/tiktok-archiver-demo-discord.png", alt: "Discord forwarding (demo)" },
+        { src: "projects/tiktok-archiver-demo-settings.png", alt: "Settings (demo)" },
+        { src: "projects/tiktok-archiver-demo-todo.png", alt: "Notes (demo)" },
+      ],
       description:
-        "Minimal TikTok account watcher and downloader written in Rust. Watches configured accounts, keeps JSON state of seen videos, and downloads missing videos via yt-dlp. Uses headless Chrome for login/cookies and logs activity to a JSON log file.",
+        "Windows desktop app that watches TikTok creators and archives their new videos and favorites using browser cookies and yt-dlp. A React UI adds a searchable library with a built-in player, per-creator check schedules, Discord forwarding, and tray and startup controls, backed by SQLite state with bounded retries and diagnostics.",
       url: "https://github.com/Tariq-Sekhri/Tiktok-Archiver",
-      tech: ["Rust", "yt-dlp", "Headless Chrome", "YAML"],
-      demoUrl: "https://www.youtube.com/watch?v=3Ewcy7WfzaA",
-      demoLabel: "TikTok setup video",
+      tech: ["Tauri 2", "Rust", "React", "TypeScript", "SQLite", "yt-dlp"],
     },
     {
-      name: "Product CRUD Web & API App",
+      name: "GroceryPro",
+      images: [
+        { src: "projects/grocerypro-profiles.png", alt: "Family profile picker" },
+        { src: "projects/grocerypro-stores.png", alt: "Store list" },
+        { src: "projects/grocerypro-list.png", alt: "Shopping list" },
+        { src: "projects/grocerypro-filters.png", alt: "List filtered by buyer" },
+        { src: "projects/grocerypro-catalog.png", alt: "Store catalog with favourites" },
+        { src: "projects/grocerypro-edit-entry.png", alt: "Edit list entry" },
+        { src: "projects/grocerypro-history.png", alt: "Past trips" },
+        { src: "projects/grocerypro-trip-details.png", alt: "Trip price breakdown" },
+      ],
+      portraitImages: true,
       description:
-        "Full-stack Spring Boot app with user registration, product CRUD via web and REST API, and role-based access control (USER/ADMIN). Uses Spring Security, Thymeleaf, and H2.",
-      url: "https://github.com/Tariq-Sekhri/spring-product-crud-demo",
-      tech: ["Spring Boot", "Spring Security", "Thymeleaf", "H2", "Maven"],
-    },
-    {
-      name: "Trivia Game",
-      description:
-        "Windows trivia game with sign-up/login, score tracking, and questions from Open Trivia DB API. WPF UI with Entity Framework and local SQL Server.",
-      url: "https://github.com/Tariq-Sekhri/TriviaGame",
-      tech: [".NET Framework", "WPF", "Entity Framework", "SQL Server"],
-      demoUrl: "https://youtu.be/bIW2UX4PA7U",
-      demoLabel: "Watch demo video",
-    },
-    {
-      name: "Event Planner Application",
-      description:
-        "Angular-based event planner with tabbed views (All, Upcoming, Past), add/edit/delete events, and JSON Server for persistence. Final project for SYST 24444 Mobile Web-Based Application Development.",
-      url: "https://github.com/Tariq-Sekhri/Event-Planner-Application",
-      tech: ["Angular", "JSON Server", "HTML/CSS"],
+        "Shared grocery and shopping-list app for web and Android. Supports family profiles, store catalogs, personal favorites, buyer and aisle filters, and trip history with price estimates. Live updates keep shopping lists and catalogs synchronized across clients.",
+      url: "https://github.com/Tariq-Sekhri/grocerypro",
+      tech: ["React", "TypeScript", "Capacitor", "Express.js", "Prisma", "MySQL", "Socket.IO"],
     },
   ],
 
@@ -143,13 +149,23 @@ export const portfolio: PortfolioData = {
 
   experience: [
     {
-      role: "Code Sensei",
+      role: "Full Stack Software Developer",
+      company: "Studio DA",
+      period: "Sep 2026 – Present",
+      bullets: [
+        "Develop Bramble, a topology optimization desktop application, across a React/TypeScript/Electron client and Python/FastAPI backend.",
+        "Build guided run setup, material profiles, interactive 3D force controls, iteration playback, and design comparison tools.",
+        "Implement checkpointing, pause/resume, crash recovery, and reliable Windows cancellation for long-running optimization jobs.",
+        "Add portable run import/export and automated tests covering result integrity and resumed runs against uninterrupted execution.",
+      ],
+    },
+    {
+      role: "Senior Coding Instructor",
       company: "Code Ninjas",
       period: "Mar 2022 – Present",
       bullets: [
-        "Taught Scratch, MakeCode Arcade, JavaScript, and Unity.",
-        "Managed class sizes of up to 20 students.",
-        "Assisted students with understanding course material, debugging, and enriching their overall learning experience.",
+        "Teach Scratch, MakeCode Arcade, JavaScript, and Unity to students in instructor-led coding classes.",
+        "Support classes of up to 20 students by explaining programming concepts, debugging projects, and adapting instruction to individual learning needs.",
       ],
     },
   ],
@@ -158,7 +174,7 @@ export const portfolio: PortfolioData = {
     {
       school: "Sheridan College",
       degree: "Diploma, Computer Programming",
-      period: "Aug 2025",
+      period: "Completed Aug 2025",
     },
   ],
 
