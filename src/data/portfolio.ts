@@ -1,8 +1,9 @@
 export interface Project {
   name: string;
   description: string;
-  url: string;
+  url?: string;
   tech: string[];
+  details: string[];
   demoUrl?: string;
   demoLabel?: string;
   images?: { src: string; alt: string }[];
@@ -53,8 +54,8 @@ export const portfolio: PortfolioData = {
         { src: "projects/bramble-comparison.png", alt: "Topology optimization comparison" },
       ],
       description:
-        "Collaborative engineering project for 2D and 3D topology optimization: finding stiff structures within a design envelope using less material. An Electron desktop client supports authoring, monitoring, and comparing optimization runs, with interactive 3D visualization and a Python computation service.",
-      url: "https://github.com/Studio-DA/Bramble",
+        "Helps engineers explore strong, lightweight structures and compare designs before committing to a build.",
+      details: ["Guided setup with material profiles and interactive 3D force controls.", "Python computation service with iteration playback and design comparison.", "Checkpointing, pause/resume, crash recovery, and portable run files."],
       tech: ["Electron", "React", "TypeScript", "Three.js", "Python", "FastAPI", "NumPy", "SciPy"],
     },
     {
@@ -67,7 +68,8 @@ export const portfolio: PortfolioData = {
         { src: "projects/tms-music.png", alt: "Music library" },
       ],
       description:
-        "Private multi-user media platform with library permissions, device-session controls, audit logs, and private playlists and tags. Supports permission- and quota-checked web-video and magnet ingestion with live progress, plus FFmpeg HLS playback with subtitles and resume.",
+        "A private place to organize, discover, and stream movies, TV, and music across devices.",
+      details: ["FFmpeg streaming with subtitles and playback resume.", "User permissions, device controls, and private playlists.", "Download queues with quotas and live progress."],
       url: "https://github.com/Tariq-Sekhri/Tariq-Media-Server",
       tech: ["React", "TypeScript", "Rust", "Axum", "FFmpeg", "HLS"],
     },
@@ -87,7 +89,8 @@ export const portfolio: PortfolioData = {
         { src: "projects/time-tracker-demo-skipped-apps.png", alt: "Skipped Apps (demo)" },
       ],
       description:
-        "Tauri/Rust desktop app that tracks active app and window usage, with calendar, donut, and trend views, tray controls, and privacy filters. Adds Android usage tracking and Rust/Axum sync with device approval and revocation, with desktop and Google Play closed-test betas shipped.",
+        "Shows where your time goes across desktop and Android, with privacy controls and a clear daily timeline.",
+      details: ["Native app and window tracking with local SQLite storage.", "Calendar, category breakdowns, and usage trends.", "Device approval and revocation for sync; desktop and Android betas shipped."],
       url: "https://github.com/Tariq-Sekhri/time_tracker",
       tech: ["Tauri 2", "Rust", "React", "Kotlin", "Axum", "SQLite"],
       demoUrl: "https://www.youtube.com/watch?v=4JMSmt3tppc",
@@ -105,7 +108,8 @@ export const portfolio: PortfolioData = {
       ],
       portraitImages: true,
       description:
-        "Android alarm app with exact scheduling, full-screen ringing, boot recovery, alarm groups, and configurable snooze and vibration. Includes independent multi-stopwatches with laps, alerts, live notifications, and session-specific notification actions.",
+        "Keeps alarms, timers, and multiple stopwatches together in one Android app.",
+      details: ["Exact alarm scheduling, full-screen alerts, and reboot recovery.", "Alarm groups with configurable snooze and vibration.", "Independent stopwatches with laps and notification controls."],
       url: "https://github.com/Tariq-Sekhri/Alarmpro",
       tech: ["Kotlin", "Jetpack Compose", "Android", "AlarmManager"],
     },
@@ -121,7 +125,8 @@ export const portfolio: PortfolioData = {
         { src: "projects/tiktok-archiver-demo-todo.png", alt: "Notes (demo)" },
       ],
       description:
-        "Windows desktop app that watches TikTok creators and archives their new videos and favorites using browser cookies and yt-dlp. A React UI adds a searchable library with a built-in player, per-creator check schedules, Discord forwarding, and tray and startup controls, backed by SQLite state with bounded retries and diagnostics.",
+        "Automatically saves videos from followed TikTok creators into a searchable personal library.",
+      details: ["Scheduled creator checks and downloads through yt-dlp.", "Built-in playback, search, and optional Discord forwarding.", "SQLite state, bounded retries, and download diagnostics."],
       url: "https://github.com/Tariq-Sekhri/Tiktok-Archiver",
       tech: ["Tauri 2", "Rust", "React", "TypeScript", "SQLite", "yt-dlp"],
     },
@@ -139,7 +144,8 @@ export const portfolio: PortfolioData = {
       ],
       portraitImages: true,
       description:
-        "Shared grocery and shopping-list app for web and Android. Supports family profiles, store catalogs, personal favorites, buyer and aisle filters, and trip history with price estimates. Live updates keep shopping lists and catalogs synchronized across clients.",
+        "Keeps the family shopping list in sync, from planning a trip to checking prices and past purchases.",
+      details: ["Live list and catalog updates through Socket.IO.", "Family profiles, store catalogs, favorites, and buyer/aisle filters.", "Trip history and price estimates across web and Android."],
       url: "https://github.com/Tariq-Sekhri/grocerypro",
       tech: ["React", "TypeScript", "Capacitor", "Express.js", "Prisma", "MySQL", "Socket.IO"],
     },
@@ -153,10 +159,10 @@ export const portfolio: PortfolioData = {
       company: "Studio DA",
       period: "Sep 2026 – Present",
       bullets: [
-        "Develop Bramble, a topology optimization desktop application, across a React/TypeScript/Electron client and Python/FastAPI backend.",
-        "Build guided run setup, material profiles, interactive 3D force controls, iteration playback, and design comparison tools.",
-        "Implement checkpointing, pause/resume, crash recovery, and reliable Windows cancellation for long-running optimization jobs.",
-        "Add portable run import/export and automated tests covering result integrity and resumed runs against uninterrupted execution.",
+        "Develop Bramble across its Electron/React desktop client and Python/FastAPI backend, connecting engineering inputs, optimization jobs, and visual results in one application.",
+        "Build guided run setup, material profiles, and interactive 3D force controls so engineers can define a design problem visually; add iteration playback and comparisons to inspect how designs evolve.",
+        "Implement checkpointing, pause/resume, crash recovery, and Windows cancellation so long-running jobs can be interrupted and recovered without starting over.",
+        "Add portable run import/export so work can move between machines, and automated integrity checks that compare resumed jobs with uninterrupted runs.",
       ],
     },
     {
@@ -164,8 +170,8 @@ export const portfolio: PortfolioData = {
       company: "Code Ninjas",
       period: "Mar 2022 – Present",
       bullets: [
-        "Teach Scratch, MakeCode Arcade, JavaScript, and Unity to students in instructor-led coding classes.",
-        "Support classes of up to 20 students by explaining programming concepts, debugging projects, and adapting instruction to individual learning needs.",
+        "Teach Scratch, MakeCode Arcade, JavaScript, and Unity, breaking programming concepts into practical steps students can apply to their own games and projects.",
+        "Support classes of up to 20 students with individual debugging and adapted explanations, helping learners work through errors and understand how to fix their code.",
       ],
     },
   ],
