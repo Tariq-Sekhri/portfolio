@@ -63,12 +63,18 @@ export const portfolio: PortfolioData = {
       images: [
         { src: "projects/tms-library.png", alt: "Movies and TV library (demo)" },
         { src: "projects/tms-discover.png", alt: "Discovery catalog (demo)" },
+        { src: "projects/tms-discover-filters.png", alt: "Discovery filters for genre, rating, and release year (demo)" },
         { src: "projects/tms-title-details.png", alt: "Series details and season requests (demo)" },
         { src: "projects/tms-player.png", alt: "Video player and playback controls (demo)" },
+        { src: "projects/tms-recent.png", alt: "Recent playback and watch progress (demo)" },
+        { src: "projects/tms-search.png", alt: "Library search and episode suggestions (demo)" },
         { src: "projects/tms-music.png", alt: "Music library (demo)" },
         { src: "projects/tms-library-management.png", alt: "Library settings and access permissions (demo)" },
+        { src: "projects/tms-create-library.png", alt: "Create a library and choose its media type (demo)" },
         { src: "projects/tms-users.png", alt: "User management and storage quotas (demo)" },
+        { src: "projects/tms-user-permissions.png", alt: "User storage quota and administration permissions (demo)" },
         { src: "projects/tms-playback-settings.png", alt: "Per-library playback settings (demo)" },
+        { src: "projects/tms-download-settings.png", alt: "Storage and offline download settings (demo)" },
         { src: "projects/tms-devices.png", alt: "Signed-in device management (demo)" },
       ],
       description:
