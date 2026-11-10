@@ -61,11 +61,9 @@ export const portfolio: PortfolioData = {
     {
       name: "Personal Media Server",
       images: [
-        { src: "projects/tms-library.png", alt: "Movies and TV library" },
-        { src: "projects/tms-discover.png", alt: "Discovery catalog" },
-        { src: "projects/tms-seasons.png", alt: "Season browsing" },
-        { src: "projects/tms-episodes.png", alt: "Episode browser" },
-        { src: "projects/tms-music.png", alt: "Music library" },
+        { src: "projects/tms-library.png", alt: "Movies and TV library (demo)" },
+        { src: "projects/tms-discover.png", alt: "Discovery catalog (demo)" },
+        { src: "projects/tms-music.png", alt: "Music library (demo)" },
       ],
       description:
         "A private place to organize, discover, and stream movies, TV, and music across devices.",
